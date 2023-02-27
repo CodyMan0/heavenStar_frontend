@@ -8,11 +8,13 @@ import LoginPage from 'scenes/loginPage';
 import HomePage from 'scenes/homePage';
 import ProfilePage from 'scenes/profilePage';
 import Navbar from 'scenes/navbar';
+import NotFound from 'scenes/notFound';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <LoginPage />,
+    errorElement: <NotFound />,
   },
   {
     path: '/home',
