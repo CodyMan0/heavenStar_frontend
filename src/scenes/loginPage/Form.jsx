@@ -56,6 +56,7 @@ const Form = () => {
   const isNonMobile = useMediaQuery('(min-width: 600px)');
   const isLogin = pageType === 'login';
   const isRegister = pageType === 'register';
+  const URL = process.env.REACT_APP_BASE_URL;
 
   const register = async (values, onSubmitProps) => {
     const formData = new FormData();
@@ -65,13 +66,10 @@ const Form = () => {
     }
     formData.append('picturePath', values.picture.name);
 
-    const savedUserResponse = await fetch(
-      'http://localhost:3001/auth/register',
-      {
-        method: 'POST',
-        body: formData,
-      }
-    );
+    const savedUserResponse = await fetch(`${URL}/auth/register`, {
+      method: 'POST',
+      body: formData,
+    });
     const savedUser = await savedUserResponse.json();
 
     onSubmitProps.resetForm();
@@ -82,7 +80,7 @@ const Form = () => {
   };
 
   const login = async (values, onSubmitProps) => {
-    const loggedInResponse = await fetch('http://localhost:3001/auth/login', {
+    const loggedInResponse = await fetch(`${URL}/auth/login`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(values),
