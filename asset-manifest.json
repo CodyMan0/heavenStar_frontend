@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/heavenStar_frontend/static/css/main.b62ea404.css",
+    "main.js": "/heavenStar_frontend/static/js/main.c1026934.js",
+    "index.html": "/heavenStar_frontend/index.html",
+    "main.b62ea404.css.map": "/heavenStar_frontend/static/css/main.b62ea404.css.map",
+    "main.c1026934.js.map": "/heavenStar_frontend/static/js/main.c1026934.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b62ea404.css",
+    "static/js/main.c1026934.js"
+  ]
+}
