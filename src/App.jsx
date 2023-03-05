@@ -34,7 +34,7 @@ const router = createBrowserRouter(
     </>
   ),
   {
-    basename: '/heavenStar_frontend/',
+    basename: '/podo/',
   }
 );
 
