@@ -32,7 +32,10 @@ const router = createBrowserRouter(
         />
       </Route>
     </>
-  )
+  ),
+  {
+    basename: '/heavenStar_frontend/',
+  }
 );
 
 const App = () => {
