@@ -6,6 +6,8 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      REACT_APP_BASE_URL: ${{secrets.REACT_APP_BASE_URL}}
 
     steps:
       - name: Checkout
@@ -23,8 +25,6 @@ jobs:
         run: npm run build
 
       - name: publish Project
-        env:
-          REACT_APP_BASE_URL: ${{secrets.REACT_APP_BASE_URL}}
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.PODO_WEB_KEY }}
