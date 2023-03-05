@@ -22,11 +22,9 @@ jobs:
       - name: Build Project
         run: npm run build
 
-      - name: Run tests with secret key
+      - name: publish Project
         env:
           REACT_APP_BASE_URL: ${{secrets.REACT_APP_BASE_URL}}
-
-      - name: publish Project
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.PODO_WEB_KEY }}
