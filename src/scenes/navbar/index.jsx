@@ -62,7 +62,7 @@ const Navbar = () => {
             },
           }}
         >
-          HeavenStar
+          Podo
         </Typography>
         {isNonMobileScreens && (
           <FlexBetween

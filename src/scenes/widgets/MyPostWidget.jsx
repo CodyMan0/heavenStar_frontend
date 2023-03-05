@@ -54,7 +54,6 @@ const MyPostWidget = ({ picturePath }) => {
       body: formData,
     });
     const posts = await response.json();
-    console.log('mypost', posts);
     dispatch(setPosts({ posts }));
     setImage(null);
     setPost('');
@@ -65,7 +64,7 @@ const MyPostWidget = ({ picturePath }) => {
       <FlexBetween gap="1.5rem">
         <UserImage image={picturePath} />
         <InputBase
-          placeholder="what"
+          placeholder="사진과 함께 기분을 표현해봐요"
           onChange={e => setPost(e.target.value)}
           value={post}
           sx={{
