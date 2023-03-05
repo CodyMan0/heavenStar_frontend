@@ -25,4 +25,5 @@ jobs:
       - name: publish Project
         uses: peaceiris/actions-gh-pages@v3
         with:
+          github_token: ${{ secrets.PODO_WEB_KEY }}
           publish_dir: ./build
