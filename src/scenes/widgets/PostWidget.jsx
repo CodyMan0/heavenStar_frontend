@@ -23,6 +23,7 @@ const PostWidget = ({
   likes,
   comments,
 }) => {
+  console.log(picturePath);
   const [isComments, setIsComments] = useState(false);
   const dispatch = useDispatch();
   const token = useSelector(state => state.token);
@@ -56,7 +57,7 @@ const PostWidget = ({
         subtitle={location}
         userPicturePath={userPicturePath}
       />
-      <Typography color={main} sx={{ mt: '1rem' }}> 
+      <Typography color={main} sx={{ mt: '1rem' }}>
         {description}
       </Typography>
       {picturePath && (

@@ -45,7 +45,7 @@ const MyPostWidget = ({ picturePath }) => {
 
     if (image) {
       formData.append('picture', image);
-      formData.append('picturePage', image.name);
+      formData.append('picturePath', image.name);
     }
 
     const response = await fetch(`${URL}/posts`, {
