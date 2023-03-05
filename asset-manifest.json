@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/heavenStar_frontend/static/css/main.b62ea404.css",
-    "main.js": "/heavenStar_frontend/static/js/main.7392c33a.js",
-    "index.html": "/heavenStar_frontend/index.html",
-    "main.b62ea404.css.map": "/heavenStar_frontend/static/css/main.b62ea404.css.map",
-    "main.7392c33a.js.map": "/heavenStar_frontend/static/js/main.7392c33a.js.map"
+    "main.css": "/podo/static/css/main.b62ea404.css",
+    "main.js": "/podo/static/js/main.d4e06a20.js",
+    "index.html": "/podo/index.html",
+    "main.b62ea404.css.map": "/podo/static/css/main.b62ea404.css.map",
+    "main.d4e06a20.js.map": "/podo/static/js/main.d4e06a20.js.map"
   },
   "entrypoints": [
     "static/css/main.b62ea404.css",
-    "static/js/main.7392c33a.js"
+    "static/js/main.d4e06a20.js"
   ]
 }
