@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/podo/static/css/main.b62ea404.css",
-    "main.js": "/podo/static/js/main.390a49a4.js",
+    "main.js": "/podo/static/js/main.9cf23ec0.js",
     "index.html": "/podo/index.html",
     "main.b62ea404.css.map": "/podo/static/css/main.b62ea404.css.map",
-    "main.390a49a4.js.map": "/podo/static/js/main.390a49a4.js.map"
+    "main.9cf23ec0.js.map": "/podo/static/js/main.9cf23ec0.js.map"
   },
   "entrypoints": [
     "static/css/main.b62ea404.css",
-    "static/js/main.390a49a4.js"
+    "static/js/main.9cf23ec0.js"
   ]
 }
