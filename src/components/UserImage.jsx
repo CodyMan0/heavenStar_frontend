@@ -2,6 +2,7 @@ import { Box } from '@mui/material';
 
 const UserImage = ({ image, size = '60px' }) => {
   const URL = process.env.REACT_APP_BASE_URL;
+
   return (
     <Box width={size} height={size}>
       <img
