@@ -133,7 +133,7 @@ const Form = () => {
             {isRegister && (
               <>
                 <TextField
-                  label="first name"
+                  label="이름"
                   onBlur={handleBlur}
                   onChange={handleChange}
                   value={values.firstName}
@@ -145,7 +145,7 @@ const Form = () => {
                   sx={{ gridColumn: 'span 2 ' }}
                 />
                 <TextField
-                  label="Last name"
+                  label="성"
                   onBlur={handleBlur}
                   onChange={handleChange}
                   value={values.lastName}
@@ -155,7 +155,7 @@ const Form = () => {
                   sx={{ gridColumn: 'span 2 ' }}
                 />
                 <TextField
-                  label="Location"
+                  label="주소"
                   onBlur={handleBlur}
                   onChange={handleChange}
                   value={values.location}
@@ -165,7 +165,7 @@ const Form = () => {
                   sx={{ gridColumn: 'span 4' }}
                 />
                 <TextField
-                  label="Occupation"
+                  label="직업"
                   onBlur={handleBlur}
                   onChange={handleChange}
                   value={values.occupation}
@@ -198,7 +198,7 @@ const Form = () => {
                       >
                         <input {...getInputProps()} />
                         {!values.picture ? (
-                          <p>Add picture here</p>
+                          <p>프로필 이미지 생성하기 클릭!</p>
                         ) : (
                           <FlexBetween>
                             <Typography>{values.picture.name}</Typography>
@@ -213,7 +213,7 @@ const Form = () => {
             )}
 
             <TextField
-              label="Email"
+              label="이메일"
               onBlur={handleBlur}
               onChange={handleChange}
               value={values.email}
@@ -223,7 +223,7 @@ const Form = () => {
               sx={{ gridColumn: 'span 2 ' }}
             />
             <TextField
-              label="Password"
+              label="패스워드"
               type="password"
               onBlur={handleBlur}
               onChange={handleChange}
@@ -249,7 +249,7 @@ const Form = () => {
                 '&:hover': { color: palette.primary.main },
               }}
             >
-              {isLogin ? 'LOGIN' : 'REGISTER'}
+              {isLogin ? '로그인' : '회원가입'}
             </Button>
             <Typography
               onClick={() => {
@@ -266,8 +266,8 @@ const Form = () => {
               }}
             >
               {isLogin
-                ? 'Dont have an account? Sign Up here'
-                : 'Already have an account? login here'}
+                ? '계정이 없으신가요? 회원가입을 해주세요.'
+                : '계정이 있으신가요? 로그인을 해주세요'}
             </Typography>
           </Box>
         </form>

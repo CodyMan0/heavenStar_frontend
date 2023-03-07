@@ -16,7 +16,7 @@ const LoginPage = () => {
         textAlign="center"
       >
         <Typography fontWeight="bold" fontSize="32px" color="primary">
-          heavenStar
+          Podo
         </Typography>
       </Box>
 
@@ -28,7 +28,7 @@ const LoginPage = () => {
         backgroundColor={theme.palette.background.alt}
       >
         <Typography fontWeight="500" variant="h5" sx={{ mb: '1.5rem' }}>
-          welcome to heavenStar, it makes us more comfortable
+          welcome to Podo v.1.0.0
         </Typography>
         <Form />
       </Box>
