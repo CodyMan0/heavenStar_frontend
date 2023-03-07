@@ -5,10 +5,15 @@
 ## 📅 프로젝트 기간
 
 개발 2.22 - 3.4
+<br/>
 백앤드 베포 3.4 - 3.8 (AWS EC2, AWS 53, cloudFlare)
+<br/>
 프론트엔드 베포 3.4 - 3.5 (AWS EC2, AWS 53, cloudFlare)
+<br/>
 
-## 🏁 프로젝트 실행 방법
+## 베포 링크 👇
+
+[베포 페이지 보러가기](https://codyman0.github.io/podo)
 
 ## 개발 환경
 
