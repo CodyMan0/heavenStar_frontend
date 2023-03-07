@@ -47,6 +47,8 @@ const UserWidget = ({ userId, picturePath }) => {
     friends,
   } = user;
 
+  console.log('userWidget', friends);
+
   return (
     <WidgetWrapper>
       {/* FIRST ROW */}

@@ -10,6 +10,7 @@ const FriendListWidget = ({ userId }) => {
   const { palette } = useTheme();
   const token = useSelector(state => state.token);
   const friends = useSelector(state => state.user.friends);
+
   const URL = process.env.REACT_APP_BASE_URL;
 
   const getFriends = async () => {
@@ -17,6 +18,7 @@ const FriendListWidget = ({ userId }) => {
       method: 'GET',
       headers: { Authorization: `Bearer ${token}` },
     });
+
     const data = await response.json();
     dispatch(setFriends({ friends: data }));
   };
@@ -36,14 +38,16 @@ const FriendListWidget = ({ userId }) => {
         Friend List
       </Typography>
       <Box display="flex" flexDirection="column" gap="1.5rem">
-        {friends.map((friend, index) => (
-          <Friend
-            key={index}
-            friendId={friend._id}
-            name={`${friend.firstName} ${friend.lastName}`}
-            subtitle={friend.occupation}
-            userPicturePath={friend.picturePath}
-          />
+        {friends?.map(friend => (
+          <>
+            <Friend
+              key={friend._id}
+              friendId={friend._id}
+              name={`${friend.firstName} ${friend.lastName}`}
+              subtitle={friend.occupation}
+              userPicturePath={friend.picturePath}
+            />
+          </>
         ))}
       </Box>
     </WidgetWrapper>
