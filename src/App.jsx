@@ -34,7 +34,7 @@ const router = createBrowserRouter(
     </>
   ),
   {
-    basename: '/podo/',
+    basename: '/podo',
   }
 );
 

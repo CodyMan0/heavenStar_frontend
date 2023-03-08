@@ -19,18 +19,18 @@ import { PaletteRounded } from '@mui/icons-material';
 import { Formik } from 'formik';
 
 const registerSchema = yup.object().shape({
-  firstName: yup.string().required('required'),
-  lastName: yup.string().required('required'),
-  email: yup.string().email('invalid email').required('required'),
-  password: yup.string().required('required'),
-  location: yup.string().required('required'),
-  occupation: yup.string().required('required'),
-  picture: yup.string().required('required'),
+  firstName: yup.string().required('이름을 기입해주세요'),
+  lastName: yup.string().required('성을 기입해주세요'),
+  email: yup.string().email(`'@'가 포함되지 않았습니다.`).required('필수'),
+  password: yup.string().min(5, '최소 5자예요').required('필수'),
+  location: yup.string().required('정확한 위치를 입력해주세요'),
+  occupation: yup.string().required('필수'),
+  picture: yup.string().required('프로필 사전을 지정해주세요'),
 });
 
 const loginSchema = yup.object().shape({
-  email: yup.string().email('invalid email').required('required'),
-  password: yup.string().required('required'),
+  email: yup.string().email('유효하지 않은 이메일이에요').required('required'),
+  password: yup.string().required('필수'),
 });
 
 const initialValuesRegister = {
@@ -48,8 +48,7 @@ const initialValuesLogin = {
   password: '',
 };
 
-const Form = () => {
-  const [pageType, setPageType] = useState('login');
+const Form = ({ pageType, setPageType }) => {
   const { palette } = useTheme();
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -257,6 +256,8 @@ const Form = () => {
                 resetForm();
               }}
               sx={{
+                display: 'flex',
+                justifyContent: 'center',
                 textDecoration: 'underline',
                 color: palette.primary.main,
                 '&:hover': {

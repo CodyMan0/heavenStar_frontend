@@ -1,10 +1,12 @@
 import { Box, Typography, useTheme, useMediaQuery } from '@mui/material';
+import { useState } from 'react';
 // import Form from './Form';
 import Navbar from 'scenes/navbar';
 import Form from './Form';
 
 const LoginPage = () => {
   const theme = useTheme();
+  const [pageType, setPageType] = useState('login');
 
   const isNonMobileScreens = useMediaQuery('(min-width: 1000px');
   return (
@@ -27,10 +29,10 @@ const LoginPage = () => {
         borderRadius="1.5rem"
         backgroundColor={theme.palette.background.alt}
       >
-        <Typography fontWeight="500" variant="h5" sx={{ mb: '1.5rem' }}>
-          welcome to Podo v.1.0.0
+        <Typography fontWeight="700" variant="h2" sx={{ mb: '1.5rem' }}>
+          {pageType === 'login' ? '로그인' : '이메일 간편가입'}
         </Typography>
-        <Form />
+        <Form pageType={pageType} setPageType={setPageType} />
       </Box>
     </Box>
   );
