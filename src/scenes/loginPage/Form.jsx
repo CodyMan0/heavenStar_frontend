@@ -1,5 +1,4 @@
 import { setLogin } from 'state';
-import { useState } from 'react';
 import {
   Box,
   Typography,
@@ -17,6 +16,8 @@ import Dropzone from 'react-dropzone';
 import FlexBetween from 'components/FlexBetween';
 import { PaletteRounded } from '@mui/icons-material';
 import { Formik } from 'formik';
+import HTTPError from 'network/httpError';
+import toast, { Toaster } from 'react-hot-toast';
 
 const registerSchema = yup.object().shape({
   firstName: yup.string().required('이름을 기입해주세요'),
@@ -71,10 +72,18 @@ const Form = ({ pageType, setPageType }) => {
     });
     const savedUser = await savedUserResponse.json();
 
-    onSubmitProps.resetForm();
-
-    if (savedUser) {
-      setPageType('login');
+    // onSubmitProps.resetForm();
+    if ('error' in savedUser) {
+      toast.error('이미 사용된 이메일이네요');
+      throw new HTTPError(
+        savedUserResponse?.status,
+        savedUserResponse?.statusText
+      ).errorMessage;
+    } else {
+      toast.success('회원가입 성공하셨어요');
+      setTimeout(() => {
+        setPageType('login');
+      }, 1000);
     }
   };
 
@@ -85,7 +94,7 @@ const Form = ({ pageType, setPageType }) => {
       body: JSON.stringify(values),
     });
     const loggedIn = await loggedInResponse.json();
-    onSubmitProps.resetForm();
+
     if (loggedIn) {
       dispatch(
         setLogin({
@@ -272,6 +281,7 @@ const Form = ({ pageType, setPageType }) => {
                 : '계정이 있으신가요? 로그인을 해주세요'}
             </Typography>
           </Box>
+          <Toaster position="top-right" reverseOrder={false} />
         </form>
       )}
     </Formik>
