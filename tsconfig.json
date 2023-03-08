@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "target": "es6",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "outDir": "./build",
+    "moduleResolution": "Node",
+    "baseUrl": "src",
+    "noImplicitAny": true, //모든 타입에 any라도 추가해야한다.
+    "noEmit": true
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "build"]
+}
