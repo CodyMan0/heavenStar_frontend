@@ -43,10 +43,12 @@ const App = () => {
   const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
 
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <RouterProvider router={router} />
-    </ThemeProvider>
+    <>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <RouterProvider router={router} />
+      </ThemeProvider>
+    </>
   );
 };
 
