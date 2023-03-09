@@ -1,4 +1,3 @@
-import { setLogin } from 'state';
 import {
   Box,
   Typography,
@@ -8,16 +7,16 @@ import {
   useMediaQuery,
 } from '@mui/material';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
-
 import * as yup from 'yup';
-import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
 import Dropzone from 'react-dropzone';
 import FlexBetween from 'components/FlexBetween';
-import { PaletteRounded } from '@mui/icons-material';
 import { Formik } from 'formik';
-import HTTPError from 'network/httpError';
 import toast, { Toaster } from 'react-hot-toast';
+import { login, register } from 'api/auth';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import HTTPError from 'network/httpError';
+import { setLogin } from 'state';
 
 const registerSchema = yup.object().shape({
   firstName: yup.string().required('이름을 기입해주세요'),
@@ -50,52 +49,17 @@ const initialValuesLogin = {
 };
 
 const Form = ({ pageType, setPageType }) => {
-  const { palette } = useTheme();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { palette } = useTheme();
   const isNonMobile = useMediaQuery('(min-width: 600px)');
   const isLogin = pageType === 'login';
   const isRegister = pageType === 'register';
-  const URL = process.env.REACT_APP_BASE_URL;
 
-  const register = async (values, onSubmitProps) => {
-    const formData = new FormData();
-
-    for (let value in values) {
-      formData.append(value, values[value]);
-    }
-    formData.append('picturePath', values.picture.name);
-
-    const savedUserResponse = await fetch(`${URL}/auth/register`, {
-      method: 'POST',
-      body: formData,
-    });
-    const savedUser = await savedUserResponse.json();
-
-    // onSubmitProps.resetForm();
-    if ('error' in savedUser) {
-      toast.error('이미 사용된 이메일이네요');
-      throw new HTTPError(
-        savedUserResponse?.status,
-        savedUserResponse?.statusText
-      ).errorMessage;
-    } else {
-      toast.success('회원가입 성공하셨어요');
-      setTimeout(() => {
-        setPageType('login');
-      }, 1000);
-    }
-  };
-
-  const login = async (values, onSubmitProps) => {
-    const loggedInResponse = await fetch(`${URL}/auth/login`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(values),
-    });
-    const loggedIn = await loggedInResponse.json();
-
-    if (loggedIn) {
+  const handleFormSubmit = async (values, onSubmitProps) => {
+    if (isLogin) {
+      const loggedIn = await login(values, onSubmitProps);
+      if (!loggedIn) return;
       dispatch(
         setLogin({
           user: loggedIn.user,
@@ -104,11 +68,26 @@ const Form = ({ pageType, setPageType }) => {
       );
       navigate('/home');
     }
-  };
 
-  const handleFormSubmit = async (values, onSubmitProps) => {
-    if (isLogin) await login(values, onSubmitProps);
-    if (isRegister) await register(values, onSubmitProps);
+    if (isRegister) {
+      const registerResponse = await register(
+        values,
+        setPageType,
+        onSubmitProps
+      );
+      if ('error' in registerResponse) {
+        toast.error('이미 사용된 이메일이네요');
+        throw new HTTPError(
+          savedUserResponse?.status,
+          savedUserResponse?.statusText
+        ).errorMessage;
+      } else {
+        toast.success('회원가입 성공하셨어요');
+        setTimeout(() => {
+          setPageType('login');
+        }, 1000);
+      }
+    }
   };
 
   return (
