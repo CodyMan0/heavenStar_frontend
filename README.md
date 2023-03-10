@@ -1,15 +1,37 @@
-# podo Project
+<img style="width:200px" src="https://littledeep.com/wp-content/uploads/2020/01/littledeep_grape_style1.png)" alt="Logo of the project" align="right">
 
-간단한 소셜 미디어 서비스를 제작하였습니다. 이번 프로젝트의 주된 목적은 서비스 클라이언트와 서버 로직을 직접 구현해보고 AWS를 활용하여 각각 베포하여 실제로 사용할 수 있는 서비스를 만들고 싶어 시작하였습니다.
+# 포도
+
+간단한 소셜 미디어 서비스를 제작하였습니다. 이번 프로젝트의 주된 목적은 두가지 입니다.
+
+1. 클라이언트와 서버 로직을 직접 구현해보고 **rest API**에 대한 깊은 이해.
+2. 간단하게나마 실제로 **사용할 수 있는 서비스**를 만들어보는 것.
+
+서버는 **AWS EC2** 인스턴스를 활용하여 베포하였고 클라이언트 서버는 github에서 제공해주는 무료 호스팅 서비스인 gitHub Page를 활용하였습니다.
+
+>
 
 ## 📅 프로젝트 기간
 
-개발 2.22 - 3.4
-<br/>
-백앤드 베포 3.4 - 3.8 (AWS EC2, AWS 53, cloudFlare)
-<br/>
-프론트엔드 베포 3.4 - 3.5 (AWS EC2, AWS 53, cloudFlare)
-<br/>
+- **개발** : 2.22 - 3.5
+- **리팩토링 및 기능 추가** : 정식 베포 (3.15일) 이후 피드백을 통해 기능 추가 예정
+- \*\*베포
+  - 백앤드 베포 3.5 - 3.10 (AWS EC2, AWS 53, cloudFlare)
+  - 프론트엔드 베포 3.5 - 3.6 (gitHub Page, gitHub Action)
+
+## 🏁 프로젝트 실행 방법
+
+1. 의존성 패키지를 설치합니다.
+
+```zsh
+$ npm install
+```
+
+2. 로컬 개발 환경을 실행합니다.
+
+```zsh
+$ npm start
+```
 
 ## 베포 링크 👇
 
@@ -17,15 +39,42 @@
 
 ## 개발 환경
 
+- **node** (v18.15.0)
+- **react.js** (v18.2.0)
+- **react-router-dom**(v6.8.1)
+- **react-hot-toast**(v2.4.0)
+- **redux-toolkit**(v8.0.5)
+- **redux-persist**(v6.0.0)
+- **@mui/material**(v5.11.0)
+- **formik** (v2.2.9)
+- **yup** (v1.0.0)
+- **typescript**(v4.9.3)
+
 ## 🔧 기술 스택
 
-| 사용 기술 | 기술 채택 근거 |
-| --------- | -------------- | --- |
-|           |                |
-|           |                |     |
-|           |                |
+| 사용 기술   | 기술 채택 근거 |
+| ----------- | -------------- | --- |
+| react.js    |                |
+| react-redux |                |     |
+|             |                |
 
-## 📏 스스로의 규칙
+## 페이지 UI
+
+- 로그인 페이지
+
+<img style="width:880px" src="public/assets/login.png" alt="login" align="left"/>
+
+- 회원가입 페이지
+
+<img style="width:880px" src="public/assets/register.png" alt="register" align="left"/>
+
+- 홈 페이지
+
+<img style="width:880px" src="public/assets/home.png" alt="home" align="left"/>
+
+- 프로필 페이지
+
+<img style="width:880px" src="public/assets/profile.png" alt="profile" align="left"/>
 
 ### git commit --prefix
 
