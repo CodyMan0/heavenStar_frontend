@@ -15,7 +15,7 @@
 
 - **개발** : 2.22 - 3.5
 - **리팩토링 및 기능 추가** : 정식 베포 (3.15일) 이후 피드백을 통해 기능 추가 예정
-- \*\*베포
+- **베포**
   - 백앤드 베포 3.5 - 3.10 (AWS EC2, AWS 53, cloudFlare)
   - 프론트엔드 베포 3.5 - 3.6 (gitHub Page, gitHub Action)
 
@@ -36,6 +36,10 @@ $ npm start
 ## 베포 링크 👇
 
 [베포 페이지 보러가기](https://codyman0.github.io/podo)
+
+로그인 아이디
+id:visitor@naver.com 
+password: 12345 
 
 ## 개발 환경
 
