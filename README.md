@@ -1,6 +1,6 @@
 <img style="width:200px" src="https://littledeep.com/wp-content/uploads/2020/01/littledeep_grape_style1.png)" alt="Logo of the project" align="right">
 
-# 포도
+# 포도 (가족 커뮤니티 서비스)
 
 간단한 소셜 미디어 서비스를 제작하였습니다. 이번 프로젝트의 주된 목적은 두가지 입니다.
 
@@ -53,10 +53,11 @@ $ npm start
 ## 🔧 기술 스택
 
 | 사용 기술   | 기술 채택 근거 |
-| ----------- | -------------- | --- |
+| ----------- | -------------- |
 | react.js    |                |
-| react-redux |                |     |
-|             |                |
+| redux-toolkit |                |
+|    formik         |                | 
+|    yup         |                |
 
 ## 페이지 UI
 
