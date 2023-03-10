@@ -37,9 +37,10 @@ $ npm start
 
 [베포 페이지 보러가기](https://codyman0.github.io/podo)
 
-로그인 아이디
-id:visitor@naver.com 
-password: 12345 
+로그인 
+
+- id: visitor@naver.com 
+- password: 12345 
 
 ## 개발 환경
 
