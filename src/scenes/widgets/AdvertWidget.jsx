@@ -13,7 +13,7 @@ const AdvertWidget = () => {
     <WidgetWrapper>
       <FlexBetween>
         <Typography color={dark} variant="h5" fontWeight="500">
-          Sponsored
+          기능 추가 예정
         </Typography>
       </FlexBetween>
       <img

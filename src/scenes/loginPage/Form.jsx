@@ -14,9 +14,10 @@ import { Formik } from 'formik';
 import toast, { Toaster } from 'react-hot-toast';
 import { login, register } from 'api/auth';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+
 import HTTPError from 'network/httpError';
 import { setLogin } from 'state';
+import { useRouter } from 'hooks/useRouter';
 
 const registerSchema = yup.object().shape({
   firstName: yup.string().required('이름을 기입해주세요'),
@@ -50,7 +51,7 @@ const initialValuesLogin = {
 
 const Form = ({ pageType, setPageType }) => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  const { routeTo } = useRouter();
   const { palette } = useTheme();
   const isNonMobile = useMediaQuery('(min-width: 600px)');
   const isLogin = pageType === 'login';
@@ -66,7 +67,7 @@ const Form = ({ pageType, setPageType }) => {
           token: loggedIn.token,
         })
       );
-      navigate('/home');
+      routeTo('/home');
     }
 
     if (isRegister) {
