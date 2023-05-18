@@ -1,17 +1,21 @@
-export interface LoginRequest {
+import { Picture } from "./ElementType";
+
+export type LoginRequestType = {
   username: string;
   password: string;
 }
-export interface Picture {
-  path: string;
-  lastModified: number;
-  lastModifiedDate: Date;
-  name: string;
-  size: number;
-  type: string;
-  webkitRelativePath: string;
-}
-export interface RegisterRequest {
+
+export type LoginResultType =
+  | {
+      token: string;
+      user: RegisterRequestType & RegisterResultType;
+    }
+  | {
+      message: string;
+    };
+
+
+export interface RegisterRequestType {
   firstName: string;
   lastName: string;
   email: string;
@@ -22,14 +26,10 @@ export interface RegisterRequest {
   [key: string]: string;
 }
 
-export interface RegisterRestResult {
+export interface RegisterResultType {
   picturePath: string;
   friends: string[];
   viewedProfile: number;
   impression: number;
 }
 
-export interface LoginRequest {
-  email: string;
-  password: string;
-}
