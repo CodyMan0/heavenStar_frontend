@@ -1,19 +1,18 @@
 export default class HTTPError extends Error {
   constructor(public statusCode: number, public message: string) {
+    console.log('t',message)
     super(message);
   }
   get errorMessage() {
     switch (this.statusCode) {
-      case 404:
-        this.message = '잘못된 요청입니다. url을 확인해주세요';
-        break;
-      case 500:
-        this.message = '중복된 아이디가 있습니다.';
+      case 400:
+        this.message = '유효하지 않은 이메일 혹은 비밀번호입니다.';
         break;
       default:
         throw new Error('Unknown Error');
     }
 
+    console.log(this.message)
     return this.message;
   }
 }

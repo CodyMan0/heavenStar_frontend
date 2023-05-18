@@ -23,13 +23,13 @@ const router = createBrowserRouter(
         <Route
           path="/home"
           element={<HomePage />}
-          errorElement={<NotFound />}
         />
         <Route
           path="/profile/:userId"
           element={<ProfilePage />}
-          errorElement={<NotFound />}
+          errorElement={<NotFound/>}
         />
+        <Route path="*" element={<NotFound />} />
       </Route>
     </>
   ),

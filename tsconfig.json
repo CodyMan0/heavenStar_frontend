@@ -6,7 +6,7 @@
     "outDir": "./build",
     "moduleResolution": "Node",
     "baseUrl": "src",
-    "noImplicitAny": true, //모든 타입에 any라도 추가해야한다.
+    "noImplicitAny": true, 
     "noEmit": true
   },
   "include": ["src"],

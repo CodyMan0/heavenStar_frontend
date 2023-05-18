@@ -2,7 +2,7 @@ import React from 'react';
 import App from 'App';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import authReducer from './state';
+import authReducer from 'state';
 import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 import {
