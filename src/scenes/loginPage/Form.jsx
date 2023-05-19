@@ -14,7 +14,6 @@ import { Formik } from 'formik';
 import toast, { Toaster } from 'react-hot-toast';
 import { login, register } from 'api/auth';
 import { useDispatch } from 'react-redux';
-
 import HTTPError from 'network/httpError';
 import { setLogin } from 'state';
 import { useRouter } from 'hooks/useRouter';
@@ -30,8 +29,8 @@ const registerSchema = yup.object().shape({
 });
 
 const loginSchema = yup.object().shape({
-  email: yup.string().email('유효하지 않은 이메일이에요').required('required'),
-  password: yup.string().required('필수'),
+  email: yup.string().email('유효하지 않은 이메일이에요').required('이메일 주소를 입력해주세요.'),
+  password: yup.string().required('비밀번호를 입력해주세요.'),
 });
 
 const initialValuesRegister = {
@@ -110,7 +109,7 @@ const Form = ({ pageType, setPageType }) => {
         <form onSubmit={handleSubmit}>
           <Box
             display="grid"
-            gap="30px"
+            gap="20px"
             gridTemplateColumns="repeat(4,minmax(0,1fr))"
             sx={{
               '& > div': {
@@ -200,6 +199,9 @@ const Form = ({ pageType, setPageType }) => {
               </>
             )}
 
+        <Typography fontWeight="700" fontSize='1rem' sx={{ gridColumn: 'span 4' }}>
+          이메일 
+        </Typography>
             <TextField
               label="이메일"
               onBlur={handleBlur}
@@ -208,18 +210,21 @@ const Form = ({ pageType, setPageType }) => {
               name="email"
               error={Boolean(touched.email) && Boolean(errors.email)}
               helperText={touched.email && errors.email}
-              sx={{ gridColumn: 'span 2 ' }}
+              sx={{ gridColumn: 'span 4 ' }}
             />
+        <Typography fontWeight="700" fontSize='1rem' sx={{ gridColumn: 'span 4' }}>
+          패스워드 
+        </Typography>
             <TextField
               label="패스워드"
               type="password"
+              name="password"
               onBlur={handleBlur}
               onChange={handleChange}
               value={values.password}
-              name="password"
               error={Boolean(touched.password) && Boolean(errors.password)}
               helperText={touched.password && errors.password}
-              sx={{ gridColumn: 'span 2 ' }}
+              sx={{ gridColumn: 'span 4 ' }}
             />
           </Box>
 
@@ -231,6 +236,7 @@ const Form = ({ pageType, setPageType }) => {
               type="submit"
               sx={{
                 fontSize: '1rem',
+                fontWeight: "700",
                 m: '2rem 0',
                 p: '1rem',
                 backgroundColor: palette.primary.main,
@@ -238,7 +244,7 @@ const Form = ({ pageType, setPageType }) => {
                 '&:hover': { color: palette.primary.main },
               }}
             >
-              {isLogin ? '로그인' : '완료'}
+              {isLogin ? '이메일 로그인' : '회원가입 완료'}
             </Button>
             <Typography
               onClick={() => {
@@ -246,19 +252,18 @@ const Form = ({ pageType, setPageType }) => {
                 resetForm();
               }}
               sx={{
+                fontSize: "14px",
                 display: 'flex',
                 justifyContent: 'center',
-                textDecoration: 'underline',
-                color: palette.primary.main,
+                color: palette.neutral.main,
                 '&:hover': {
                   cursor: 'pointer',
-                  color: palette.primary.light,
                 },
               }}
             >
               {isLogin
-                ? '계정이 없으신가요? 회원가입을 해주세요.'
-                : '계정이 있으신가요? 로그인을 해주세요'}
+                ? '회원가입'
+                : '로그인'}
             </Typography>
           </Box>
           <Toaster position="top-right" reverseOrder={false} />
